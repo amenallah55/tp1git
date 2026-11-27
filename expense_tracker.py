@@ -62,7 +62,16 @@ def delete_expense():
         print("Please enter a valid number!")
 
 
+# 5. Show average (Student B)
+def show_average():
+    if len(expenses) == 0:
+        print("No expenses to calculate average.")
+        return
 
+    total = sum(expense["amount"] for expense in expenses)
+    average = total / len(expenses)
+
+    print(f"Average: {average:.2f}")
 
 
 # Main menu
@@ -74,6 +83,7 @@ def main():
         print("3. Show total")
         print("4. Exit")
         print("5. Delete an expense")
+        print("6. Show average")
 
         choice = input("Choose an option: ")
 
@@ -92,6 +102,9 @@ def main():
 
         elif choice == "5":
             delete_expense()
+
+        elif choice == "6":
+            show_average()
 
         else:
             print("Invalid option.")
